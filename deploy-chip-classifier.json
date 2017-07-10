@@ -1,0 +1,76 @@
+{
+    "name": "deploy-chip-classifier",
+    "version": "0.1.2",
+    "description": "Deploy a tensorflow keras model to classify RGB image chips.",
+    "properties": {
+        "isPublic": true,
+        "timeout": 172800
+    },
+    "inputPortDescriptors": [
+        {
+            "name": "chips",
+            "type": "directory",
+            "description": "Contains the chips to deploy on in a single tar file. Acceptab le chip image format include jpeg, tif and png.",
+            "required": true
+        },
+        {
+            "name": "model",
+            "type": "directory",
+            "description": "Contains an h5 file with the model trained using a tensorflow backend. If a Theano backend was used, please use the deploy-chip-classifier-theano task.",
+            "required": true
+        },
+        {
+            "name": "classes",
+            "type": "string",
+            "description": "The class names in a single string, separated by commas and in the same order that the model was trained on (e.g., 'No swimming pool, Swimming pool').",
+            "required": false
+        },
+        {
+            "name": "size",
+            "type": "string",
+            "description": "Chip size in pixels. If a chip has a different size, it is automatically resized to (size)x(size). Default is 224.",
+            "required": false
+        },
+        {
+            "name": "deploy_batch",
+            "type": "string",
+            "description": "Size of deploy batch. Default is 100.",
+            "required": false
+        },
+        {
+            "name": "normalization_vector",
+            "type": "string",
+            "description": "Pixel intensity values to subtract from R, G, B bands. The default is '123.68,116.779,103.939'.",
+            "required": false
+        },
+        {
+            "name": "normalization_value",
+            "type": "string",
+            "description": "Pixel intensity values to divide chips by. Division will take place after subtracting the normalization_vector. Defaults to None.",
+            "required": false
+        }
+    ],
+    "outputPortDescriptors": [
+        {
+            "name": "results",
+            "type": "directory",
+            "description": "Contains classified.json, which has chip names as a keys and results as values. Results include identified class name and certainty in the classification."
+        },
+        {
+            "name": "logs",
+            "type": "directory",
+            "description": "Contains out.log. out.log includes information on the time required to load the model and the total classification time."
+        }
+    ],
+    "containerDescriptors": [
+        {
+            "type": "DOCKER",
+            "properties": {
+                "image": "platformstories/deploy-chip-classifier",
+                "domain": "nvidiap2"
+            },
+            "command": "python /deploy-chip-classifier.py",
+            "isPublic": true
+        }
+    ]
+}
