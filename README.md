@@ -2,6 +2,7 @@
 
 A GBDX task to deploy a trained [Keras](https://keras.io/) classifier on a set of target image chips. The task returns a json file 'classified.json', which contains the input chip names, each with a classification result and confidence score. Note that if the model was trained using a Theano [backend](https://keras.io/backend/) the deploy-chip-classifier-theano task name should be used.
 
+<img src='images/deploy-wf.png' width=750>
 
 ## Run
 
