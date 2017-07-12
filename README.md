@@ -40,9 +40,9 @@ Here we run though a sample execution of the deploy-chip-classifier task. We wil
     ```python
     deploy_wf = gbdx.Workflow([deploy_task])
     random_str = str(uuid.uuid4())
-    output_location = join('platform-stories/trial-runs', random_str)
+    output_location = join('platform-stories/trial-runs', random_str, 'results')
 
-    deploy_wf.savedata(deploy_task.outputs.results, join(output_location, 'classified-json'))
+    deploy_wf.savedata(deploy_task.outputs.results, output_location)
     ```
 
 5. Execute the workflow:
