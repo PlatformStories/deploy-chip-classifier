@@ -42,7 +42,7 @@ Here we run though a sample execution of the deploy-chip-classifier task. We wil
     random_str = str(uuid.uuid4())
     output_location = join('platform-stories/trial-runs', random_str)
 
-    deploy_wf.savedata(deploy_task.outputs.results, join(output_location, 'classified_json'))
+    deploy_wf.savedata(deploy_task.outputs.results, join(output_location, 'classified-json'))
     ```
 
 5. Execute the workflow:
