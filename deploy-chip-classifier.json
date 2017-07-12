@@ -67,7 +67,7 @@
             "type": "DOCKER",
             "properties": {
                 "image": "platformstories/deploy-chip-classifier",
-                "domain": "nvidiap2"
+                "domain": "nvidiag2"
             },
             "command": "python /deploy-chip-classifier.py",
             "isPublic": true
