@@ -64,13 +64,13 @@ The following table lists the input ports of deploy-chip-classifier. Note that b
 
 | Name | Valid Values | Description | Required |
 |------|--------------|-------------|----------|
-| chips | Directory | Contains the chips to deploy on in a single tar file. Acceptab le chip image format include jpeg, tif and png. | True |
-| model | Directory | Contains an h5 file with the model trained using a tensorflow backend. If a Theano backend was used, please use the deploy-chip-classifier-theano task. | True |
-| classes | String | The classes to sort each chip into. Different class names should be separated by commas and must be in the same order that the model was trained on (e.g- 'No Buildings, Buildings'). If this is omitted the classes will be numerical. | False |
+| chips | Directory | Contains the chips to deploy on in a single tar file. Acceptable formats include jpeg, tif and png. | True |
+| model | Directory | Contains an h5 file with the model trained using a Tensorflow backend. If a Theano backend was used, please use the deploy-chip-classifier-theano task. | True |
+| classes | String | The class names in a single string, separated by commas and in the same order that the model was trained on, e.g., 'No swimming pool, Swimming pool'. If omitted, the class names are numbers starting from 0. | False |
 | size | String | Chip size in pixels. If a chip has a different size, it is automatically resized to (size)x(size). Default is 224. | False |
 | deploy_batch | String | Size of deploy batch. Default is 100. | False |
 | normalization_vector | String | Pixel intensity values to subtract from R, G, B bands. The default is '123.68,116.779,103.939'. | False |
-| normalization_value | String | Pixel intensity values to divide chips by. Division will take place after subtracting the normalization_vector. Defaults to None. | False |
+| normalization_value | String | Pixel intensity values to divide chips by. Division takes place after subtracting the normalization_vector. Defaults to None. | False |
 
 
 ## Output Ports
@@ -79,8 +79,8 @@ deploy-chip-classifier has two outputs as detailed below.
 
 | Name  | Type | Description:                                      |
 |-------|------|---------------------------------------------------|
-| results | Directory | Contains classified.json, which has chip names as a keys and results as values. Results include identified class name and certainty in the classification. |
-| logs | Directory | Contains out.log. out.log includes information on the time required to load the model and the total classification time. |
+| results | Directory | Contains classified.json. Each entry is a key:value pair, where the key is the chip name and the value is a dictionary which includes the classification of that chip ("class") and the certainty of the classification ("certainty"). |
+| logs | Directory | Contains out.log which includes information on the time required to load the model and the total classification time. |
 
 
 ## Advanced
