@@ -1,6 +1,6 @@
 {
     "name": "deploy-chip-classifier",
-    "version": "0.1.3",
+    "version": "0.1.4",
     "description": "Deploy a tensorflow keras model to classify RGB image chips.",
     "properties": {
         "isPublic": true,
@@ -67,7 +67,7 @@
             "type": "DOCKER",
             "properties": {
                 "image": "platformstories/deploy-chip-classifier",
-                "domain": "nvidiag2"
+                "domain": "nvidiap2"
             },
             "command": "python /deploy-chip-classifier.py",
             "isPublic": true
