@@ -18,8 +18,7 @@ RUN apt-get -y update && apt-get -y \
     wget \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-RUN pip install numpy h5py tensorflow-gpu geojson sklearn keras==1.2.2
+RUN pip install numpy h5py tensorflow-gpu geojson sklearn keras==2.0.5
 
-COPY deploy-chip-classifier.py /
-COPY gbdx_task_interface.py /
+COPY ./bin /
 COPY keras.json /root/.keras/keras.json
