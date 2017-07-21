@@ -110,7 +110,7 @@ You need to install [Docker](https://docs.docker.com/engine/installation/) and [
 Clone the repository:
 
 ```bash
-git clone https://github.com/platformstories/train-chip-classifier
+git clone https://github.com/platformstories/deploy-chip-classifier
 ```
 
 Then:
