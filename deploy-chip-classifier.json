@@ -1,6 +1,7 @@
 {
     "name": "deploy-chip-classifier",
     "version": "0.1.4",
+    "taskOwnerEmail": "kostas.stamatiou@digitalglobe.com",
     "description": "Deploy a tensorflow keras model to classify RGB image chips.",
     "properties": {
         "isPublic": true,
